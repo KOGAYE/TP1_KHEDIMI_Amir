@@ -6,8 +6,8 @@
 
 Liste tous les processus en cours sur ma machine
 
-bash
-```PS C:\Users\kogay> get-process
+```bash
+PS C:\Users\kogay> get-process
 
 Handles  NPM(K)    PM(K)      WS(K)     CPU(s)     Id  SI ProcessName
 -------  ------    -----      -----     ------     --  -- -----------
@@ -282,8 +282,7 @@ Handles  NPM(K)    PM(K)      WS(K)     CPU(s)     Id  SI ProcessName
 
 Liste les 3 processus qui ont le plus petit identifiant
 
-bash
-````
+````bash
 PS C:\Users\kogay> Get-Process | Sort-Object Id | Select-Object -First 3
 
 Handles  NPM(K)    PM(K)      WS(K)     CPU(s)     Id  SI ProcessName
@@ -297,8 +296,7 @@ Handles  NPM(K)    PM(K)      WS(K)     CPU(s)     Id  SI ProcessName
 
 Liste tous les services de la machine( en cours d'éxecution)
 
-bash
-````
+````bash
 PS C:\Users\kogay> Get-Service | Where-Object { $_.Status -eq 'Running' }
 
 Status   Name               DisplayName
@@ -440,8 +438,8 @@ Running  XblAuthManager     Gestionnaire d'authentification Xbo...
 
 
 Liste tous les services de la machine(ceux pas en lancés)
-bash
-````
+
+````bash
 PS C:\Users\kogay> Get-Service | Where-Object { $_.Status -eq 'Stopped' }
 
 Status   Name               DisplayName
@@ -607,31 +605,31 @@ Stopped  XboxNetApiSvc      Service de mise en réseau Xbox Live
 
 
 Quantité de ram total de la machine
-bash
-````
+
+````bash
 PS C:\Users\kogay> (Get-CimInstance Win32_ComputerSystem).TotalPhysicalMemory 
 16469520384
 ````
 
 Quantité de ram libre de la machine
-bash
-````
+
+````bash
 PS C:\Users\kogay> (Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory
 5679716
 ````
 
 
 CPU
-bash
-````
+
+````bash
 PS C:\Users\kogay> (Get-WmiObject Win32_Processor).LoadPercentage
 24
 ````
 
 
 stockage peripherique
-bash
-````
+
+````bash
 PS C:\Users\kogay> Get-CimInstance -ClassName Win32_DiskDrive | Select-Object -Property Model
 
 Model
@@ -641,8 +639,8 @@ SAMSUNG MZVL4512HBLU-00BTW
 
 
 partition de stockage
-bash
-````
+
+````bash
 PS C:\Users\kogay> Get-Partition
 
 
@@ -658,8 +656,8 @@ PartitionNumber  DriveLetter Offset                                        Size 
 
 
 espace disque dur
-bash
-````
+
+````bash
 PS C:\Users\kogay> Get-Volume
 
 DriveLetter FriendlyName FileSystemType DriveType HealthStatus OperationalStatus SizeRemaining      Size
@@ -670,8 +668,8 @@ C           Acer         NTFS           Fixed     Healthy      OK               
 
 
 carte réseau
-bash
-````
+
+````bash
 PS C:\Users\kogay> Get-NetAdapter
 
 Name                      InterfaceDescription                    ifIndex Status       MacAddress             LinkSpeed
@@ -686,8 +684,8 @@ Ethernet                  Realtek PCIe GbE Family Controller            3 Discon
 
 
 connexion réseau
-bash
-````
+
+````bash
 PS C:\Users\kogay> Get-NetTCPConnection -State Established
 
 LocalAddress                        LocalPort RemoteAddress                       RemotePort State       AppliedSetting
@@ -740,8 +738,8 @@ LocalAddress                        LocalPort RemoteAddress                     
 
 
 utilisateurs de la machine
-bash
-````
+
+````bash
 PS C:\Users\kogay> net user
 
 comptes d’utilisateurs de \\KOGAYE
@@ -754,8 +752,8 @@ La commande s’est terminée correctement.
 
 
 Heure de login
-bash
-````
+
+````bash
 PS C:\Users\kogay> (get-date) – (gcim Win32_OperatingSystem). LastBootUpTime
 
 
