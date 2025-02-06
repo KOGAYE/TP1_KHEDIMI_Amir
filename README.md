@@ -604,6 +604,9 @@ Stopped  XboxNetApiSvc      Service de mise en réseau Xbox Live
 ````
 
 
+## 2. Mémoire et CPU
+
+
 Quantité de ram total de la machine
 
 ````bash
@@ -625,6 +628,9 @@ CPU
 PS C:\Users\kogay> (Get-WmiObject Win32_Processor).LoadPercentage
 24
 ````
+
+
+## 3. Stockage
 
 
 stockage peripherique
@@ -665,6 +671,10 @@ DriveLetter FriendlyName FileSystemType DriveType HealthStatus OperationalStatus
 C           Acer         NTFS           Fixed     Healthy      OK                    107.46 GB 475.67 GB
             Recovery     NTFS           Fixed     Healthy      OK                    428.83 MB   1024 MB
 ````
+
+
+
+## 4. Réseau
 
 
 carte réseau
@@ -736,6 +746,8 @@ LocalAddress                        LocalPort RemoteAddress                     
 127.0.0.1                           5141      127.0.0.1                           59184      Established Internet
 ````
 
+
+## 5. Utilisateurs
 
 utilisateurs de la machine
 
@@ -870,6 +882,9 @@ KOGAYE\Amir
 ````
 
 
+## 6. Random
+
+
 Uptime (afficher l'heure/la date de l'allumage de la machine)
 
 ````bash
@@ -877,11 +892,6 @@ PS C:\Users\kogay> (Get-CimInstance Win32_OperatingSystem).LastBootUpTime
 
 vendredi 14 janvier 2024 18:45:52
 ````
-
-
-
-
-
 
 
 
@@ -893,8 +903,6 @@ AMD Ryzen 7 5700U with Radeon Graphics
 ````
 
 
-
-
 Version OS
 
 ````bash
@@ -902,6 +910,8 @@ PS C:\Users\kogay> (Get-WmiObject Win32_OperatingSystem).Caption
 Microsoft Windows 11 Famille
 ````
 
+
+## 7. Ptit amusement
 
 
 Lister les connexions actives
