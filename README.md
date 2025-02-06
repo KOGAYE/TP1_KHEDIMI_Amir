@@ -771,7 +771,9 @@ TotalMilliseconds : 524283724,9502
 ````
 
 
-#Les processus en cours d'execution
+Les processus en cours d'execution
+
+````bash
 PS C:\Users\kogay> Get-Process | Select-Object Name, Id, @{Name="UserName";Expression={(Get-WmiObject Win32_Process -Filter "ProcessId = '$($_.Id)'").GetOwner().User}}
 
 Name       Id UserName
@@ -856,19 +858,25 @@ dwm      8580
 expl... 21024 Amir
 File... 20856 Amir
 File... 19076
+````
 
 
 
-#déterminer quel utilisateur est le propriétaire du fichier
+déterminer quel utilisateur est le propriétaire du fichier
+
+````bash
 PS C:\Users\kogay> (Get-Acl "C:\Users\kogay\.lunarclient\").Owner
 KOGAYE\Amir
+````
 
 
+Uptime (afficher l'heure/la date de l'allumage de la machine)
 
-#Uptime (afficher l'heure/la date de l'allumage de la machine)
+````bash
 PS C:\Users\kogay> (Get-CimInstance Win32_OperatingSystem).LastBootUpTime
 
 vendredi 14 janvier 2024 18:45:52
+````
 
 
 
@@ -877,20 +885,28 @@ vendredi 14 janvier 2024 18:45:52
 
 
 
-# Device (afficher le modèle du processeur de la machine)
+Device (afficher le modèle du processeur de la machine)
+
+````bash
 PS C:\Users\kogay> (Get-WmiObject Win32_Processor).Name
 AMD Ryzen 7 5700U with Radeon Graphics
+````
 
 
 
 
-#Version OS
+Version OS
+
+````bash
 PS C:\Users\kogay> (Get-WmiObject Win32_OperatingSystem).Caption
 Microsoft Windows 11 Famille
+````
 
 
 
-# Lister les connexions actives
+Lister les connexions actives
+
+````bash
 PS C:\Users\kogay> Get-NetTCPConnection | Select-Object LocalAddress, LocalPort, RemoteAddress, RemotePort, State, OwningProcess
 
 
@@ -2475,24 +2491,37 @@ RemoteAddress : 0.0.0.0
 RemotePort    : 0
 State         : Listen
 OwningProcess : 1620
+````
 
 
-#En savoir plus sur le chemin vers un programme
+En savoir plus sur le chemin vers un programme
+
+````bash
 (Get-Process -Id <ID Processus>).Path
+````
 
 
-#En savoir plus sur le proprietaire du programme
+En savoir plus sur le proprietaire du programme
+
+````bash
 (Get-Process -Id <ID Processus>).Path).Owner
+````
 
 
 
-#Utilise la commande Invoke-RestMethod pour obtenir des informations sur une adresse IP
+Utilise la commande Invoke-RestMethod pour obtenir des informations sur une adresse IP
+
+````bash
 Invoke-RestMethod -Method Get -Uri http://ip-api.com/json/<ADRESSE IP>
+````
 
 
 
-#avoir le delai d'une adresse IP
+avoir le delai d'une adresse IP
+
+````bash
 ping <ADRESSE IP>
+````
 
 
 
